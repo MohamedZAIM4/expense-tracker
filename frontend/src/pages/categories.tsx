@@ -163,7 +163,9 @@ export default function Categories() {
       <div>
         <h2>Erreur lors du chargement</h2>
         <p>{error.message}</p>
-        <button onClick={() => router.push("/login")}>Aller au login</button>
+        <button onClick={() => router.push("/login")}>
+          Aller à la connexion
+        </button>
       </div>
     );
 
@@ -172,7 +174,6 @@ export default function Categories() {
     <div>
       <div className={styles.categoriesContainer}>
         <div className={styles.topBar}>
-          {/* Bouton retour dashboard supprimé */}
           <div className={styles.centerTitle}>Gestion des catégories</div>
         </div>
         <div className={styles.innerFlex}>
@@ -207,13 +208,13 @@ export default function Categories() {
                             className={styles.iconButton}
                             onClick={() => handleEditSave(cat)}
                             disabled={updateMutation.status === "pending"}
-                            title="Save">
+                            title="Enregistrer">
                             💾
                           </button>
                           <button
                             className={styles.iconButton}
                             onClick={handleEditCancel}
-                            title="Cancel">
+                            title="Annuler">
                             ✖️
                           </button>
                         </>
@@ -225,23 +226,23 @@ export default function Categories() {
                           <div className={styles.cardActions}>
                             <button
                               className={styles.iconButton}
-                              title="Edit"
-                              aria-label="Edit"
+                              title="Modifier"
+                              aria-label="Modifier"
                               onClick={() => handleEdit(cat)}>
                               ✏️
                             </button>
                             <button
                               className={styles.iconButton}
-                              title="Delete"
-                              aria-label="Delete"
+                              title="Supprimer"
+                              aria-label="Supprimer"
                               onClick={() => handleDeleteClick(cat.id)}
                               disabled={deleteMutation.status === "pending"}>
                               🗑️
                             </button>
                             <button
                               className={styles.iconButton}
-                              title="Add Expense"
-                              aria-label="Add Expense"
+                              title="Ajouter une dépense"
+                              aria-label="Ajouter une dépense"
                               onClick={handleAddExpense}>
                               ➕
                             </button>
@@ -252,92 +253,96 @@ export default function Categories() {
                   )
                 )
               ) : (
-                <p>Aucune catégorie. Créez‑en une ci‑dessus.</p>
+                <p>Aucune catégorie. Créez-en une ci-dessus.</p>
               )}
             </div>
           </div>
         </div>
-      </div>
-      {showCascadeDialog && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(0,0,0,0.25)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-          }}>
+        {showCascadeDialog && (
           <div
             style={{
-              background: "#fff",
-              padding: "2.5rem 2rem",
-              borderRadius: "1.2rem",
-              boxShadow: "0 8px 32px 0 rgba(31,38,135,0.18)",
-              minWidth: 320,
-              maxWidth: "90vw",
-              textAlign: "center",
-              fontFamily: "inherit",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              background: "rgba(0,0,0,0.25)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
             }}>
-            <h3
-              style={{ fontSize: "1.3rem", fontWeight: 700, marginBottom: 12 }}>
-              Attention
-            </h3>
-            <p
-              style={{
-                fontSize: "1.08rem",
-                color: "#22223b",
-                marginBottom: 24,
-              }}>
-              Si cette catégorie contient des dépenses,{" "}
-              <b>elles seront supprimées aussi</b>.<br />
-              Voulez-vous continuer ?
-            </p>
             <div
               style={{
-                display: "flex",
-                gap: 16,
-                marginTop: 12,
-                justifyContent: "center",
+                background: "#fff",
+                padding: "2.5rem 2rem",
+                borderRadius: "1.2rem",
+                boxShadow: "0 8px 32px 0 rgba(31,38,135,0.18)",
+                minWidth: 320,
+                maxWidth: "90vw",
+                textAlign: "center",
+                fontFamily: "inherit",
               }}>
-              <button
-                onClick={() => setShowCascadeDialog(false)}
+              <h3
                 style={{
-                  padding: "10px 22px",
-                  borderRadius: 8,
-                  border: "none",
-                  background: "#eee",
-                  color: "#333",
-                  fontWeight: 500,
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                  transition: "background 0.15s",
-                }}>
-                Annuler
-              </button>
-              <button
-                onClick={handleCascadeDelete}
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: 8,
-                  border: "none",
-                  background: "#e53e3e",
-                  color: "#fff",
+                  fontSize: "1.3rem",
                   fontWeight: 700,
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                  transition: "background 0.15s",
+                  marginBottom: 12,
                 }}>
-                Supprimer
-              </button>
+                Attention
+              </h3>
+              <p
+                style={{
+                  fontSize: "1.08rem",
+                  color: "#22223b",
+                  marginBottom: 24,
+                }}>
+                Si cette catégorie contient des dépenses,{" "}
+                <b>elles seront supprimées aussi</b>.<br />
+                Voulez-vous continuer ?
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 16,
+                  marginTop: 12,
+                  justifyContent: "center",
+                }}>
+                <button
+                  onClick={() => setShowCascadeDialog(false)}
+                  style={{
+                    padding: "10px 22px",
+                    borderRadius: 8,
+                    border: "none",
+                    background: "#eee",
+                    color: "#333",
+                    fontWeight: 500,
+                    fontSize: "1rem",
+                    cursor: "pointer",
+                    transition: "background 0.15s",
+                  }}>
+                  Annuler
+                </button>
+                <button
+                  onClick={handleCascadeDelete}
+                  style={{
+                    padding: "10px 22px",
+                    borderRadius: 8,
+                    border: "none",
+                    background: "#e53e3e",
+                    color: "#fff",
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    cursor: "pointer",
+                    transition: "background 0.15s",
+                  }}>
+                  Supprimer
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

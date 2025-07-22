@@ -114,22 +114,22 @@ export default function Expenses() {
   };
 
   if (expensesLoading || categoriesLoading)
-    return <div className="container mx-auto p-4">Loading...</div>;
+    return <div className="container mx-auto p-4">Chargement…</div>;
 
   return (
     <div>
       <div className={styles.expensesContainer}>
-        <h1 className={styles.expensesTitle}>Expenses</h1>
+        <h1 className={styles.expensesTitle}>Dépenses</h1>
         <ExpenseForm
           categories={categories}
           onSubmit={(data) => createMutation.mutate(data)}
           isLoading={createMutation.status === "pending"}
         />
         <button onClick={handleExport} className={styles.expenseExport}>
-          Export to CSV
+          Exporter en CSV
         </button>
         <button onClick={handleExportPDF} className={styles.expenseExport}>
-          Exporter PDF
+          Exporter en PDF
         </button>
         <ul className={styles.expensesList}>
           {expenses.map(
@@ -142,14 +142,14 @@ export default function Expenses() {
             }) => (
               <li key={expense.id} className={styles.expenseCard}>
                 <span>
-                  {expense.category.name}: ${expense.amount.toFixed(2)} on{" "}
+                  {expense.category.name} : {expense.amount.toFixed(2)} € le{" "}
                   {new Date(expense.date).toLocaleDateString()}
                   {expense.description && ` - ${expense.description}`}
                 </span>
                 <button
                   className={styles.expenseDelete}
                   onClick={() => deleteMutation.mutate(expense.id)}>
-                  Delete
+                  Supprimer
                 </button>
               </li>
             )

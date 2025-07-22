@@ -12,7 +12,7 @@ export default function Login() {
   const mutation = useMutation({
     mutationFn: login,
     onSuccess: () => router.push("/dashboard"),
-    onError: () => alert("Invalid credentials"),
+    onError: () => alert("Identifiants invalides"),
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,7 +23,7 @@ export default function Login() {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
-        <h1 className={styles.loginTitle}>Login</h1>
+        <h1 className={styles.loginTitle}>Connexion</h1>
         <form onSubmit={handleSubmit} className={styles.loginForm}>
           <div className={styles.field}>
             <label className={styles.loginLabel} htmlFor="email">
@@ -41,7 +41,7 @@ export default function Login() {
           </div>
           <div className={styles.field}>
             <label className={styles.loginLabel} htmlFor="password">
-              Password
+              Mot de passe
             </label>
             <input
               type="password"
@@ -54,14 +54,14 @@ export default function Login() {
             />
           </div>
           <button type="submit" className={styles.loginButton}>
-            Login
+            Se connecter
           </button>
         </form>
         <button
           type="button"
           className={styles.registerButton}
           onClick={() => router.push("/register")}>
-          Register
+          Créer un compte
         </button>
       </div>
     </div>

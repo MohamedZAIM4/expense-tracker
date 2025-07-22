@@ -38,9 +38,9 @@ export default function CategoryForm({
           <circle cx="8.5" cy="13.5" r="1.5" />
         </svg>
       </div>
-      <h2 className={styles.title}>Create Category</h2>
+      <h2 className={styles.title}>Créer une catégorie</h2>
       <p className={styles.subtitle}>
-        Add a new category to organize your content
+        Ajoutez une nouvelle catégorie pour organiser vos dépenses
       </p>
       <form onSubmit={handleSubmit} autoComplete="off">
         <div
@@ -53,7 +53,7 @@ export default function CategoryForm({
           <label
             className={styles.label}
             style={{ textAlign: "center", width: "100%" }}>
-            Category Name
+            Nom de la catégorie
           </label>
           <input
             className={styles.input}
@@ -61,14 +61,14 @@ export default function CategoryForm({
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value.slice(0, 15))}
-            placeholder="Enter category name"
+            placeholder="Entrez le nom de la catégorie"
             required
             maxLength={15}
             style={{ textAlign: "center" }}
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.label}>Category Color</label>
+          <label className={styles.label}>Couleur de la catégorie</label>
           <input
             className={styles.colorInput}
             id="color"
@@ -77,18 +77,18 @@ export default function CategoryForm({
             onChange={(e) => setColor(e.target.value)}
           />
           <span className={styles.colorHint}>
-            Choose a color to identify your category
+            Choisissez une couleur pour identifier votre catégorie
           </span>
         </div>
         <button
           className={styles.button}
           type="submit"
           disabled={isLoading || !name.trim()}>
-          {isLoading ? "Creating…" : "Create category"}
+          {isLoading ? "Création en cours…" : "Créer la catégorie"}
         </button>
       </form>
       <div className={styles.footerHint}>
-        Categories help organize and filter your content effectively
+        Les catégories aident à organiser et filtrer votre contenu efficacement
       </div>
     </div>
   );

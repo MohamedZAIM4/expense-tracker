@@ -41,10 +41,10 @@ export default function ExpenseForm({
   return (
     <div className={styles.formCard}>
       <form onSubmit={handleSubmit}>
-        <h2 className={styles.formTitle}>Add New Expense</h2>
+        <h2 className={styles.formTitle}>Ajouter une dépense</h2>
         <div className={styles.formGroup}>
           <label htmlFor="amount" className={styles.formLabel}>
-            Amount
+            Montant
           </label>
           <input
             id="amount"
@@ -59,7 +59,7 @@ export default function ExpenseForm({
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="category" className={styles.formLabel}>
-            Category
+            Catégorie
           </label>
           <select
             id="category"
@@ -67,7 +67,7 @@ export default function ExpenseForm({
             onChange={(e) => setCategoryId(e.target.value)}
             required
             className={styles.formSelect}>
-            <option value="">Select a category</option>
+            <option value="">Sélectionnez une catégorie</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
@@ -90,7 +90,7 @@ export default function ExpenseForm({
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="description" className={styles.formLabel}>
-            Description (optional)
+            Description (optionnel)
           </label>
           <input
             id="description"
@@ -104,7 +104,7 @@ export default function ExpenseForm({
           type="submit"
           disabled={isLoading}
           className={styles.formButton}>
-          {isLoading ? "Adding..." : "Add Expense"}
+          {isLoading ? "Ajout en cours…" : "Ajouter la dépense"}
         </button>
       </form>
       <div className={styles.buttonGroup}>
@@ -112,7 +112,7 @@ export default function ExpenseForm({
           type="button"
           className={styles.secondaryButton}
           onClick={() => router.push("/categories")}>
-          Add category
+          Ajouter une catégorie
         </button>
       </div>
     </div>

@@ -34,7 +34,7 @@ This is the frontend for the Expense Tracker application, designed to help indiv
 - **CSS Modules**: Keeps styles local to components, making collaboration and scaling easier.
 - **jsPDF**: Allows PDF export directly in the browser, no server-side rendering or extra backend logic needed.
 
-## Setup & Usage
+## Setup & Usage: As recommendation you should run backend first (if not you should modify the CORS port)
 
 1. **Install dependencies**:
    ```bash

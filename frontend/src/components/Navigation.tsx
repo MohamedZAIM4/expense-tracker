@@ -24,25 +24,25 @@ export default function Navigation() {
               router.pathname === "/dashboard" ? styles.active : ""
             }`}
             onClick={() => handleNavigate("/dashboard")}>
-            Dashboard
+            Tableau de bord
           </button>
           <button
             className={`${styles.navButton} ${
               router.pathname === "/categories" ? styles.active : ""
             }`}
             onClick={() => handleNavigate("/categories")}>
-            Categories
+            Catégories
           </button>
           <button
             className={`${styles.navButton} ${
               router.pathname === "/expenses" ? styles.active : ""
             }`}
             onClick={() => handleNavigate("/expenses")}>
-            Expenses
+            Dépenses
           </button>
         </div>
         <button className={styles.logoutButton} onClick={handleLogout}>
-          Logout
+          Déconnexion
         </button>
       </div>
     </nav>

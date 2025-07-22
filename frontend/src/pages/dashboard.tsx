@@ -67,26 +67,26 @@ export default function Dashboard() {
   }, [categories, categoriesLoading, categoriesError, router]);
 
   if (categoriesLoading || categoryLoading || monthLoading) {
-    return <div className="container mx-auto p-4">Loading...</div>;
+    return <div className="container mx-auto p-4">Chargement…</div>;
   }
 
   if (categoriesError || categoryError || monthError) {
     return (
       <div className="container mx-auto p-4">
         <p className="text-red-500">
-          Error loading data:{" "}
+          Erreur lors du chargement des données :{" "}
           {(categoriesError || categoryError || monthError)?.message ||
-            "Please log in or add data"}
+            "Veuillez vous connecter ou ajouter des données"}
         </p>
         <button
           className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 transition duration-200"
           onClick={() => router.push("/login")}>
-          Go to Login
+          Aller à la connexion
         </button>
         <button
           className="mt-4 ml-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow hover:bg-green-600 transition duration-200"
           onClick={() => router.push("/categories")}>
-          Add Categories
+          Ajouter des catégories
         </button>
       </div>
     );
@@ -108,34 +108,36 @@ export default function Dashboard() {
 
   return (
     <div className={styles.dashboardContainer}>
-      <h1 className={styles.dashboardTitle}>Dashboard</h1>
+      <h1 className={styles.dashboardTitle}>Tableau de bord</h1>
       <div className={styles.dashboardActions}>
         <button
           className={styles.dashboardButton}
           onClick={() => router.push("/categories")}>
-          Add Category
+          Ajouter une catégorie
         </button>
         <button
           className={styles.dashboardButton}
           onClick={() => router.push("/expenses")}>
-          Add Expense
+          Ajouter une dépense
         </button>
       </div>
       {categoryChartData.length === 0 && monthChartData.length === 0 ? (
         <div className={styles.dashboardCard}>
           <p style={{ color: "#6c6c80", marginBottom: "1.5rem" }}>
-            No data available. Start by adding expenses.
+            Aucune donnée disponible. Commencez par ajouter des dépenses.
           </p>
           <button
             className={styles.dashboardButton}
             onClick={() => router.push("/expenses")}>
-            Add Expenses
+            Ajouter des dépenses
           </button>
         </div>
       ) : (
         <div className={styles.dashboardGrid}>
           <div className={styles.dashboardCard}>
-            <h2 className={styles.dashboardCardTitle}>Expenses by Category</h2>
+            <h2 className={styles.dashboardCardTitle}>
+              Dépenses par catégorie
+            </h2>
             {categoryChartData.length > 0 ? (
               <PieChart width={340} height={340}>
                 <Pie
@@ -192,10 +194,10 @@ export default function Dashboard() {
           <div
             className={styles.dashboardCard}
             style={{ gridColumn: "1 / -1" }}>
-            <h2 className={styles.dashboardCardTitle}>Summary</h2>
+            <h2 className={styles.dashboardCardTitle}>Résumé</h2>
             <div className={styles.dashboardSummaryGrid}>
               <div className={styles.dashboardSummaryCol}>
-                <h3 className={styles.dashboardSummaryTitle}>By Category</h3>
+                <h3 className={styles.dashboardSummaryTitle}>Par catégorie</h3>
                 {categorySummary.length > 0 ? (
                   <ul className={styles.dashboardSummaryList}>
                     {categorySummary.map(
@@ -215,7 +217,7 @@ export default function Dashboard() {
                             {item.categoryName}
                           </span>
                           <span className={styles.summaryValue}>
-                            ${item.total.toFixed(2)}
+                            {item.total.toFixed(2)} €
                           </span>
                         </li>
                       )
@@ -223,12 +225,12 @@ export default function Dashboard() {
                   </ul>
                 ) : (
                   <p className={styles.dashboardSummaryEmpty}>
-                    No category summary available.
+                    Aucun résumé par catégorie disponible.
                   </p>
                 )}
               </div>
               <div className={styles.dashboardSummaryCol}>
-                <h3 className={styles.dashboardSummaryTitle}>By Month</h3>
+                <h3 className={styles.dashboardSummaryTitle}>Par mois</h3>
                 {monthSummary.length > 0 ? (
                   <ul className={styles.dashboardSummaryList}>
                     {monthSummary.map(
@@ -245,7 +247,7 @@ export default function Dashboard() {
                             {item.month}
                           </span>
                           <span className={styles.summaryValue}>
-                            ${item.total.toFixed(2)}
+                            {item.total.toFixed(2)} €
                           </span>
                         </li>
                       )
@@ -253,7 +255,7 @@ export default function Dashboard() {
                   </ul>
                 ) : (
                   <p className={styles.dashboardSummaryEmpty}>
-                    No monthly summary available.
+                    Aucun résumé mensuel disponible.
                   </p>
                 )}
               </div>

@@ -59,11 +59,11 @@ export default function Register() {
   return (
     <div className={styles.registerContainer}>
       <div className={styles.registerCard}>
-        <h1 className={styles.registerTitle}>Register</h1>
+        <h1 className={styles.registerTitle}>Créer un compte</h1>
         <form onSubmit={handleSubmit} className={styles.registerForm}>
           <div className={styles.field}>
             <label className={styles.registerLabel} htmlFor="username">
-              Username
+              Nom d'utilisateur
             </label>
             <input
               type="text"
@@ -91,7 +91,7 @@ export default function Register() {
           </div>
           <div className={styles.field}>
             <label className={styles.registerLabel} htmlFor="password">
-              Password
+              Mot de passe
             </label>
             <input
               type="password"
@@ -104,7 +104,7 @@ export default function Register() {
             />
           </div>
           <button type="submit" className={styles.registerButton}>
-            Register
+            S'inscrire
           </button>
         </form>
       </div>
